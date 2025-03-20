@@ -1,0 +1,100 @@
+create database x;
+create table users
+(
+    id           varchar(5) primary key,
+    email        varchar(20) unique,
+    phone_number varchar(10) not null,
+    user_name    varchar(20) not null unique
+);
+create table followers
+(
+    id            varchar(5) primary key,
+    friends_since datetime default (current_time()),
+    user_name     varchar(20) not null unique,
+    user_id       varchar(10),
+    foreign key (user_id) references users (id)
+);
+create table user_preferences
+(
+    id               varchar(10) primary key,
+    profile_pic      varchar(30),
+    name             varchar(20),
+    show_read_status boolean default (true),
+    user_id          varchar(10),
+    foreign key (user_id) references users (id)
+);
+
+create table tweets
+(
+    id             varchar(10) primary key,
+    likes_count    int not null check ( likes_count > 0 ),
+    retweets_count int not null check ( retweets_count > 0 ),
+    user_id        varchar(10),
+    foreign key (user_id) references users (id)
+);
+
+create table chats
+(
+    message     varchar(100) not null,
+    user_id     varchar(10),
+    foreign key (user_id) references users (id),
+    follower_id varchar(10),
+    foreign key (user_id) references followers (id)
+);
+
+create table tweet_comments
+(
+    id           varchar(10) primary key,
+    comment_date datetime not null default (current_time()),
+    tweets_id    varchar(10),
+    foreign key (tweets_id) references tweets (id)
+);
+
+insert into users
+values ('1', 'Ayman@gmail.com', '0555555555', 'ayman');
+insert into users
+values ('2', 'Fahad@gmail.com', '0555555559', 'khaled');
+insert into users
+values ('3', 'Khaled@gmail.com', '0555555585', 'fahad');
+
+insert into followers
+values ('3', default, 'Fahad', '1');
+insert into followers
+values ('2', default, 'khaled', '3');
+insert into followers
+values ('1', default, 'ayman', '2');
+
+insert into user_preferences
+values ('1', 'AAAA', 'A21', false, '1');
+insert into user_preferences
+values ('2', 'BBB', 'B21', default, '2');
+insert into user_preferences
+values ('3', 'AACCCAA', 'C21', true, '3');
+
+insert into tweets
+values ('1', 5000, 1002, '1');
+insert into tweets
+values ('2', 12, 9, '2');
+insert into tweets
+values ('3', 35, 11, '3');
+
+insert into chats
+values ('hello and welcome', '1', '2');
+insert into chats
+values ('hello and bye', '2', '3');
+insert into chats
+values ('bye and welcome', '3', '1');
+
+insert into tweet_comments
+values ('1', default, '1');
+insert into tweet_comments
+values ('3', default, '3');
+insert into tweet_comments
+values ('2', default, '2');
+
+UPDATE tweets
+SET likes_count = 99, retweets_count= 100
+WHERE id = '2';
+
+SELECT * from users join chats c on users.id = c.user_id where id = '1';
+
