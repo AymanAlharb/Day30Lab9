@@ -1,10 +1,10 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:136.0) Gecko/20100101 Firefox/136.0" version="26.1.1">
   <diagram name="Page-1" id="5sKYIhL3RmwZ1YFvMS--">
-    <mxGraphModel dx="1339" dy="636" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1969" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="R1s8RJMTlrpI-1WShA8P-1" value="User" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="R1s8RJMTlrpI-1WShA8P-1" value="Users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="30" y="65" width="230" height="130" as="geometry" />
         </mxCell>
         <mxCell id="R1s8RJMTlrpI-1WShA8P-2" value="id varchar(10) primary key&lt;br&gt;age int not null&lt;br&gt;phone_number varchar(10) not null&lt;br&gt;email varchar(20) not null unique&lt;br&gt;user_name unique not null" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="R1s8RJMTlrpI-1WShA8P-1">
@@ -19,7 +19,7 @@
         <mxCell id="R1s8RJMTlrpI-1WShA8P-8" value="followers" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="101" y="350" width="220" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="R1s8RJMTlrpI-1WShA8P-9" value="id varchar(10) primary key&lt;br&gt;phone_number varchar(10) not null&lt;br&gt;friends_since datetime not null&lt;br&gt;user_id varchar(10)&lt;br&gt;forign key (user_id) refrences users(id)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="R1s8RJMTlrpI-1WShA8P-8">
+        <mxCell id="R1s8RJMTlrpI-1WShA8P-9" value="id varchar(10) primary key&lt;br&gt;friends_since datetime not null&lt;br&gt;user_id varchar(10)&lt;br&gt;forign key (user_id) refrences users(id)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="R1s8RJMTlrpI-1WShA8P-8">
           <mxGeometry y="50" width="220" height="90" as="geometry" />
         </mxCell>
         <mxCell id="R1s8RJMTlrpI-1WShA8P-10" value="chats" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -37,7 +37,7 @@
         <mxCell id="R1s8RJMTlrpI-1WShA8P-14" value="tweet_comments" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="530" y="620" width="240" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="R1s8RJMTlrpI-1WShA8P-15" value="id varchar(10) primary key&lt;br&gt;comment_date datetime not null&lt;br&gt;user_id varchar(10)&lt;br&gt;forign key (user_id) refrences users(id)&lt;br&gt;tweets_id varchar(10)&lt;br&gt;forign key (tweets_id) refrences tweets(id)&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="R1s8RJMTlrpI-1WShA8P-14">
+        <mxCell id="R1s8RJMTlrpI-1WShA8P-15" value="id varchar(10) primary key&lt;br&gt;comment_date datetime not null&lt;br&gt;tweets_id varchar(10)&lt;br&gt;forign key (tweets_id) refrences tweets(id)&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="R1s8RJMTlrpI-1WShA8P-14">
           <mxGeometry y="50" width="240" height="100" as="geometry" />
         </mxCell>
         <mxCell id="R1s8RJMTlrpI-1WShA8P-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="R1s8RJMTlrpI-1WShA8P-4" target="R1s8RJMTlrpI-1WShA8P-2">
